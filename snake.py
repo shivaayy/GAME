@@ -72,6 +72,11 @@ class foodGenerator:
 
 
 
+def drawGrid(surface):
+    for z in range(0,51):
+        pygame.draw.line(surface, pygame.Color(0,0,0),(0,z*10),(500,z*10))       #horizontal line
+        pygame.draw.line(surface, pygame.Color(0,0,0),(z*10,0),(z*10,500))       #vertical line
+
 
 
 
@@ -113,14 +118,16 @@ while(True):
             elif event.key==pygame.K_s:
                 speed-=2
     
-    window.fill(pygame.Color(100,100,100))
+    window.fill(pygame.Color(0,0,0))
   
-
+    
     for pos in snk.getBody():
-        pygame.draw.rect(window, pygame.Color(0,255,0), pygame.Rect(pos[0],pos[1],10,10))
+        pygame.draw.rect(window, pygame.Color(255,255,255), pygame.Rect(pos[0],pos[1],10,10))
     f=food.getFood()
+    drawGrid(window)
     pygame.draw.rect(window, pygame.Color(255,0,0), pygame.Rect(f[0],f[1],10,10))
     x=snk.move(f)
+    
     if x==1:
         f=food.setFood(snk.getBody())
         score+=100
@@ -136,4 +143,3 @@ while(True):
     
     
     fps.tick(speed)
-

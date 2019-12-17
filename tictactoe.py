@@ -15,7 +15,7 @@ def callback(r,c):
         status[r][c]='X'
         win_check()
         if stop_game==True:
-            winner.insert(END,"*********************  HURRAY !     X  win")
+            winner.insert(END,"*********************  HURRAY !     X  won")
             
     elif player=='O' and stop_game==False and status[r][c]==0:
         a[r][c].configure(text='O',fg="black",bg="gray")
@@ -23,7 +23,7 @@ def callback(r,c):
         status[r][c]='O'
         win_check()
         if stop_game==True:
-            winner.insert(END,"*********************  HURRAY !     O  win")
+            winner.insert(END,"*********************  HURRAY !     O  won")
     
 
 
